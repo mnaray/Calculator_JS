@@ -47,3 +47,30 @@ const typing = document.querySelector("[typing]")
 const calculator = new Calculator(typed, typing)
 
 numberButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        calculator.appendNumber(button.innerText)
+        calculator.updateDisplay()
+    })
+})
+
+operationButtons.forEach(operation => {
+    operation.addEventListener("click", () => {
+        calculator.chooseOperation(operation.innerText)
+        calculator.updateDisplay()
+    })
+})
+
+equalsButton.addEventListener("click", () => {
+    calculator.compute()
+    calculator.updateDisplay()
+})
+
+clearButton.addEventListener("click", () => {
+    calculator.clear()
+    calculator.updateDisplay()
+})
+
+deleteButton.addEventListener("click", () => {
+    calculator.delete()
+    calculator.updateDisplay()
+})

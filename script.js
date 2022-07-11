@@ -1,7 +1,7 @@
 class Calculator {
-    constructor(typed, typing) {
-        this.typed = typed
-        this.typing = typing
+    constructor(typedText, typingText) {
+        this.typedText = typedText
+        this.typingText = typingText
         this.clear()
     }
 
@@ -52,7 +52,12 @@ class Calculator {
     }
 
     updateDisplay() {
-        this.typing.innerText = this.getDisplayedNumber
+        this.typingText.innerText = this.getDisplayedNumber(typing)
+        if (this.operation != null) {
+            this.typedText.innerText = this.getDisplayedNumber(typed) + " " + this.operation
+        } else {
+            this.typedText.innerText = ""
+        }
     }
 }
 
@@ -64,7 +69,7 @@ const deleteButton = document.querySelector("[delete]")
 const typed = document.querySelector("[typed]")
 const typing = document.querySelector("[typing]")
 
-const calculator = new Calculator(typed, typing)
+const calculator = new Calculator(typedText, typingText)
 
 numberButtons.forEach(button => {
     button.addEventListener("click", () => {

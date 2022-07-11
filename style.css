@@ -1,0 +1,63 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: linear-gradient(to left, rgb(255, 98, 66), rgb(255, 195, 110));
+}
+
+.calculator-container {
+    min-height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: repeat(4, 7rem);
+    grid-template-rows: minmax(7.5rem, auto) repeat(5, 7rem);
+}
+
+.calculator-container > button {
+    cursor: pointer;
+    font-size: 2rem;
+    border: 0.02rem solid gray;
+    /* border-radius: 5rem; */
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.7);
+    transition: background-color 0.5s;
+}
+
+.calculator-container > button:hover {
+    background-color: white;
+}
+
+.double {
+    grid-column: span 2;
+}
+
+.screen {
+    grid-column: span 4;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
+    padding: 1rem;
+    word-wrap: break-word;
+    word-break: break-all;
+    /* border-radius: 5rem; */
+}
+
+.screen .typed {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.5rem;
+}
+
+.screen .typing {
+    color: rgb(255, 255, 255);
+    font-size: 2.5rem;
+}

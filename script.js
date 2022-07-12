@@ -72,8 +72,7 @@ class Calculator {
         }
 
         if (decimalDigits != null) {
-            const output = integerDisplay + "." + decimalDigits.toString();
-            return output;
+            return `${integerDisplay}.${decimalDigits}`;
         } else {
             return integerDisplay;
         }
@@ -82,8 +81,9 @@ class Calculator {
     updateDisplay() {
         this.typingText.innerText = this.getDisplayedNumber(typing);
         if (this.operation != null) {
-            this.typedText.innerText =
-                this.getDisplayedNumber(typed) + " " + this.operation;
+            this.previousOperandTextElement.innerText = `${this.getDisplayNumber(
+                this.previousOperand
+            )} ${this.operation}`;
         } else {
             this.typedText.innerText = "";
         }
@@ -107,9 +107,9 @@ numberButtons.forEach((button) => {
     });
 });
 
-operationButtons.forEach((operation) => {
-    operation.addEventListener("click", () => {
-        calculator.chooseOperation(operation.innerText);
+operationButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        calculator.chooseOperation(button.innerText);
         calculator.updateDisplay();
     });
 });

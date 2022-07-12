@@ -66,7 +66,9 @@ class Calculator {
         if (isNaN(integerDigits)) {
             integerDisplay = "";
         } else {
-            integerDisplay = integerDigits.toString();
+            integerDisplay = integerDigits.toLocaleString("en", {
+                maximumFractionDigits: 0,
+            });
         }
 
         if (decimalDigits != null) {

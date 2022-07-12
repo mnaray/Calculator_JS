@@ -79,10 +79,10 @@ class Calculator {
     }
 
     updateDisplay() {
-        this.typingText.innerText = this.getDisplayedNumber(typing);
+        this.typingText.innerText = this.getDisplayedNumber(this.typing);
         if (this.operation != null) {
-            this.previousOperandTextElement.innerText = `${this.getDisplayNumber(
-                this.previousOperand
+            this.typedText.innerText = `${this.getDisplayedNumber(
+                this.typed
             )} ${this.operation}`;
         } else {
             this.typedText.innerText = "";
@@ -95,8 +95,9 @@ const operationButtons = document.querySelectorAll("[operation]");
 const equalsButton = document.querySelector("[equals]");
 const clearButton = document.querySelector("[all-clear]");
 const deleteButton = document.querySelector("[delete]");
-const typed = document.querySelector("[typed]");
-const typing = document.querySelector("[typing]");
+const typedText = document.querySelector("[typed]");
+const typingText = document.querySelector("[typing]");
+console.log("imported buttons");
 
 const calculator = new Calculator(typedText, typingText);
 
